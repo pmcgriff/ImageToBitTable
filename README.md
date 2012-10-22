@@ -7,10 +7,11 @@ I know.
 
 Build this code and run the app.
 
-Put in the URL of your image(s) and choose your pixel size.
+Enter the URL of your image(s) and choose your pixel size.
 
-This little application will create a bitmap, if you will, using table cells with bgcolors of your image.
+This app will create a bitmap, so to speak, using table cells with bgcolors to pixelize your image.
 It won't be great, but it will be much better than the default broken image icon.
+
 ![Image Rendered with Table Cells](https://github.com/pmn4/ImageToBitTable/blob/master/gist/bittable-step1.png?raw=true "Image Rendered with Table Cells")
 
 THEN, when your users allow images, they will see the actual image displayed right over top of the pixelated version.
