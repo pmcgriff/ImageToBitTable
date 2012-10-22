@@ -231,18 +231,19 @@ namespace ImageToBitTable
 
 		private void btnOpen_Click(object sender, System.EventArgs e)
 		{
-			OpenFileDialog objOFD = new OpenFileDialog();
-			objOFD.Filter = "Bitmap|*.bmp|JPEG|*.jpg|GIF|*.gif|PNG|*.png|All Supported Formats|*.bmp;*.jpg;*.gif;*.png";
-			objOFD.Title = "Open image file...";
-			objOFD.InitialDirectory = Application.StartupPath;
-			objOFD.FilterIndex = 5;
+			var objOfd = new OpenFileDialog
+				{
+					Filter = "Bitmap|*.bmp|JPEG|*.jpg|GIF|*.gif|PNG|*.png|All Supported Formats|*.bmp;*.jpg;*.gif;*.png",
+					Title = "Open image file...",
+					InitialDirectory = Application.StartupPath,
+					FilterIndex = 5
+				};
 
-			if(objOFD.ShowDialog() == DialogResult.OK)
-			{
-				imageFileName = objOFD.FileName;
-				txtImageUrl.Text = String.Empty;
-				RenderBitTable();
-			}
+			if (objOfd.ShowDialog() != DialogResult.OK) return;
+
+			imageFileName = objOfd.FileName;
+			txtImageUrl.Text = String.Empty;
+			RenderBitTable();
 		}
 
 		private void cbxPixelSize_SelectedIndexChanged(object sender, EventArgs e)
@@ -322,7 +323,7 @@ namespace ImageToBitTable
 			wbBitTable.Left = img.Width + 16;
 
 			Width = img.Width + wbBitTable.Width + 48;
-			Height = Math.Max(img.Height, wbBitTable.Height) + picMain.Location.Y + 16;
+			Height = Math.Max(img.Height, wbBitTable.Height) + picMain.Location.Y + 48;
 		}
 
 		private static string AddEmailImageMagic(string imageUrl, Image image, string imageHtml)
